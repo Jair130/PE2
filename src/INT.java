@@ -13,12 +13,15 @@
 
 import java.util.Scanner;
 import MENUS.AdminMenu;
+import MENUS.StudentMenu;
 public interface INT {
   
     
     public static void main(String[] args) {
         
         AdminMenu AM = new AdminMenu();
+        StudentMenu SM = new StudentMenu();
+                
 
         System.out.println("WELCOME USER PLEASE TYPE YOUR USERNAME AND PASSWORD");
 
@@ -43,6 +46,7 @@ public interface INT {
     System.out.println("2. Access a list of all other users in the system");
     System.out.println("3. Remove other users from the system");
     System.out.println("4. Review the operations performed by other users");
+    System.out.println("5. Exit");
     
    option = in.nextInt();
      
@@ -63,19 +67,49 @@ public interface INT {
             System.exit(0);
         default:
             System.out.println ("PLEASE TYPE A VALID OPTION");
-         
+    }     
     }
-        }
+        
         if (user.equals("Student") && pass.equals("Pass1234")) {
-            System.out.println("OKies");
-        } else {
+            System.out.println("Welcome User Choose an option from the menu");
+            System.out.println("1. Modify your profile");
+            System.out.println("2. Solve system of equations of two variables");
+            System.out.println("3. Solve system of equations of three variables");
+            System.out.println("4. Save and see solutions");
+            System.out.println("5. Exit");
+        }else {
             System.out.println("UserName or Password incorrect");
         }
-
+            option = in.nextInt();
+     
+    switch (option){
+        case 1:
+           SM.Modify();
+         break;
+        case 2:
+          SM.Equations1();
+          break;
+        case 3:
+            SM.Equations2();
+          break;
+        case 4:
+            SM.Save();
+         break;
+        case 5:
+            System.exit(0);
+        default:
+            System.out.println ("PLEASE TYPE A VALID OPTION");
+        
     }
+        
+        
+         
     
+        
+        }
+        }
     
-   
 
-}
+
+       
 
