@@ -14,10 +14,11 @@
 import java.util.Scanner;
 import MENUS.AdminMenu;
 import MENUS.StudentMenu;
+import java.sql.SQLException;
 public interface INT {
   
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         
         AdminMenu AM = new AdminMenu();
         StudentMenu SM = new StudentMenu();
