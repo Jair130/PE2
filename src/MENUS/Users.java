@@ -5,6 +5,7 @@
 package MENUS;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,8 +14,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -31,6 +34,15 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Users.findByUserAge", query = "SELECT u FROM Users u WHERE u.userAge = :userAge"),
     @NamedQuery(name = "Users.findByUserSex", query = "SELECT u FROM Users u WHERE u.userSex = :userSex")})
 public class Users implements Serializable {
+
+    @Id
+    @Basic(optional = false)
+    @Column(name = "user_id", nullable = false, length = 20)
+    private String userId;
+    @Column(name = "user_operation", length = 45)
+    private String userOperation;
+    @OneToMany(mappedBy = "userDoneId")
+    private Collection<Results> resultsCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -128,5 +140,36 @@ public class Users implements Serializable {
     public String toString() {
         return "MENUS.Users[ usersId=" + usersId + " ]";
     }
+
+    public Users(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserOperation() {
+        return userOperation;
+    }
+
+    public void setUserOperation(String userOperation) {
+        this.userOperation = userOperation;
+    }
+
+    @XmlTransient
+    public Collection<Results> getResultsCollection() {
+        return resultsCollection;
+    }
+
+    public void setResultsCollection(Collection<Results> resultsCollection) {
+        this.resultsCollection = resultsCollection;
+    }
+
+   
     
 }

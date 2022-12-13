@@ -6,6 +6,10 @@ package MENUS;
 
 import java.util.Scanner;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 
 /**
  *
@@ -14,15 +18,46 @@ import java.io.IOException;
 public class AdminMenu {
    
     static Scanner scanner = new Scanner (System.in);
+    String dbName = "Finalp";
+    String DB_URL = "jdbc:mysql://localhost/" + dbName;
+    String user = "CCT";
+    String pass = "Dublin";
+    Connection conn = null;
+    Statement stmt = null;
     
-     
     
   public static void main(String[] args) throws IOException {
         
   
   }
-    public void Modify (){
-        System.out.println("1. Modify your profile");
+    public void Modify () throws SQLException{
+       try{  
+        
+     conn = DriverManager.getConnection("jdbc:mysql://localhost/", user, pass);
+     stmt = conn.createStatement();
+    
+       conn = DriverManager.getConnection (DB_URL,user,pass);
+           
+       stmt = conn.createStatement();
+       
+       String sql =("UPDATE Admin SET Admin_surname = 'Caballero'  WHERE Admin_id = A1");
+       
+       int rowsAffected = stmt.executeUpdate(sql);
+       
+       System.out.println("Rows affected: " + rowsAffected);
+       System.out.println ("UPDATE COMPLETED!");
+       
+       
+       
+      } catch (SQLException ex){
+       }finally {
+           if (stmt != null){
+               stmt.close();
+           }
+           if (conn != null){
+               conn.close();
+           }
+       }
     }
         
     public void Access (){

@@ -3,6 +3,9 @@
   <persistence-unit name="PE2PU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>MENUS.Users</class>
+    <class>MENUS.Admin</class>
+    <class>MENUS.Operations</class>
+    <class>MENUS.Results</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/finalp?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
