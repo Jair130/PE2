@@ -72,7 +72,7 @@ public class StudentMenu {
             Scanner read =new Scanner (System.in);
             //variables 
        int x1,x2,x3,y1,y2,y3,z1,z2,z3,t1,t2,t3;
-        System.out.println("ingrese todos los nuumero.....");
+        System.out.println("TYPE ALL THE VALUES.....");
         
         x1=read.nextInt();
         y1=read.nextInt();
@@ -100,7 +100,7 @@ public class StudentMenu {
          long d2=((x1*t2*z3) + (t1*z2*x3) + (z1*x2*t3)) - ((x3*t2*z1) + (t3*z2*x1) + (z3*x2*t1));
          long d3=((x1*y2*t3) + (y1*t2*x3) + (t1*x2*y3)) - ((x3*y2*t1) + (y3*t2*x1) + (t3*x2*y1));
          // Determinants x y z
-         System.out.println("determinant is = "+d);
+         System.out.println("determinant = "+d);
          System.out.println("determinant one "+d1);
          System.out.println("determinant two "+d2);
          System.out.println("determinant three "+d3);  

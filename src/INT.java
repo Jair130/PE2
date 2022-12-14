@@ -15,6 +15,8 @@ import java.util.Scanner;
 import MENUS.AdminMenu;
 import MENUS.StudentMenu;
 import java.sql.SQLException;
+
+
 public interface INT {
   
     
@@ -22,7 +24,7 @@ public interface INT {
         
         AdminMenu AM = new AdminMenu();
         StudentMenu SM = new StudentMenu();
-                
+       
 
         System.out.println("WELCOME USER PLEASE TYPE YOUR USERNAME AND PASSWORD");
 
@@ -78,9 +80,7 @@ public interface INT {
             System.out.println("3. Solve system of equations of three variables");
             System.out.println("4. Save and see solutions");
             System.out.println("5. Exit");
-        }else {
-            System.out.println("UserName or Password incorrect");
-        }
+        
             option = in.nextInt();
      
     switch (option){
@@ -102,7 +102,10 @@ public interface INT {
             System.out.println ("PLEASE TYPE A VALID OPTION");
         
     }
-        
+        }
+        else {
+            System.out.println("UserName or Password incorrect");
+        }
         
          
     

@@ -20,9 +20,9 @@ public class AdminMenu {
    
     static Scanner scanner = new Scanner (System.in);
     
-   static final  String DB_URL = "jdbc:mysql://localhost/finalp" ;
-   static final String user = "root";
-   static final String pass = "root";
+    String DB_URL = "jdbc:mysql://localhost/finalp" ;
+    String user = "root";
+    String pass = "root";
     Connection conn = null;
     Statement stmt = null;
     
@@ -33,16 +33,36 @@ public class AdminMenu {
   
   }
     public void Modify () throws SQLException{
-       try{  
         
-     conn = DriverManager.getConnection("jdbc:mysql://localhost" , user, pass);
-     stmt = conn.createStatement();
+         System.out.println ("Welcome Admin Choose an option from the menu");
+    System.out.println("1. Modify your name");
+    System.out.println("2. Modify your surname");
+    System.out.println("3. Modify your age ");
+    int option;
+    Scanner in = new Scanner (System.in);
+    option = in.nextInt();
+     Scanner myKB = new Scanner (System.in);
+     
+    switch (option){
+        case 1:
+             try{   
+            System.out.println("TYPE YOUR ID");
+             String id = myKB.nextLine();
+              System.out.println("TYPE YOUR NEW NAME");
+              String Newname = myKB.nextLine();
+          
+//     conn = DriverManager.getConnection("jdbc:mysql://localhost" , user, pass);
+//     stmt = conn.createStatement();
     
        conn = DriverManager.getConnection (DB_URL,user,pass);
            
        stmt = conn.createStatement();
        
-       String sql =("UPDATE admin SET admin_surname = 'Caballero'  WHERE admin_id = 'A1' ");
+       
+       String sql =("UPDATE admin SET admin_name = \"" + Newname + "\" WHERE admin_id =  \"" + id + "\";");
+                 System.out.println("UPDATE admin SET admin_name = " + Newname + " WHERE admin_id =  " + id );
+                 System.out.println("UPDATE admin SET admin_name = \"" + Newname + "\" WHERE admin_id =  \"" + id + "\";");
+       // Prepared statements
        
        int rowsAffected = stmt.executeUpdate(sql);
        
@@ -51,7 +71,8 @@ public class AdminMenu {
        
        
        
-      } catch (SQLException ex){
+    } catch (SQLException ex){
+                 ex.printStackTrace();
        }finally {
            if (stmt != null){
                stmt.close();
@@ -60,6 +81,19 @@ public class AdminMenu {
                conn.close();
            }
        }
+     
+     
+     
+     
+         break;
+        case 2:
+          
+          break;
+        case 3:
+            
+          break;
+    }
+     
     }
         
     public void Access (){
