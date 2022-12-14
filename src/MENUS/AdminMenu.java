@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import MENUS.connection;
 
 /**
  *
@@ -18,12 +19,13 @@ import java.sql.Statement;
 public class AdminMenu {
    
     static Scanner scanner = new Scanner (System.in);
-    String dbName = "Finalp";
-    String DB_URL = "jdbc:mysql://localhost/" + dbName;
-    String user = "CCT";
-    String pass = "Dublin";
+    
+   static final  String DB_URL = "jdbc:mysql://localhost/finalp" ;
+   static final String user = "root";
+   static final String pass = "root";
     Connection conn = null;
     Statement stmt = null;
+    
     
     
   public static void main(String[] args) throws IOException {
@@ -33,18 +35,18 @@ public class AdminMenu {
     public void Modify () throws SQLException{
        try{  
         
-     conn = DriverManager.getConnection("jdbc:mysql://localhost/", user, pass);
+     conn = DriverManager.getConnection("jdbc:mysql://localhost" , user, pass);
      stmt = conn.createStatement();
     
        conn = DriverManager.getConnection (DB_URL,user,pass);
            
        stmt = conn.createStatement();
        
-       String sql =("UPDATE Admin SET Admin_surname = 'Caballero'  WHERE Admin_id = A1");
+       String sql =("UPDATE admin SET admin_surname = 'Caballero'  WHERE admin_id = 'A1' ");
        
        int rowsAffected = stmt.executeUpdate(sql);
        
-       System.out.println("Rows affected: " + rowsAffected);
+       System.out.println("Rows affected: " + rowsAffected );
        System.out.println ("UPDATE COMPLETED!");
        
        
