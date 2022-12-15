@@ -15,7 +15,10 @@ import java.util.Scanner;
 import MENUS.AdminMenu;
 import MENUS.StudentMenu;
 import java.sql.SQLException;
+<<<<<<< HEAD
 import MENUS.connection;
+=======
+>>>>>>> d21dc1b1a477c705d32039fae05f4c7d63086acd
 
 
 public interface INT {
@@ -26,10 +29,15 @@ public interface INT {
         
         AdminMenu AM = new AdminMenu();
         StudentMenu SM = new StudentMenu();
+<<<<<<< HEAD
         Scanner in = new Scanner (System.in);
         int option = 0;
        
     do{
+=======
+       
+
+>>>>>>> d21dc1b1a477c705d32039fae05f4c7d63086acd
         System.out.println("WELCOME USER PLEASE TYPE YOUR USERNAME AND PASSWORD");
 
         Scanner input = new Scanner(System.in);
@@ -109,8 +117,12 @@ public interface INT {
         else {
             System.out.println("UserName or Password incorrect");
         }
+<<<<<<< HEAD
     
     }while (5 >option ); 
+=======
+        
+>>>>>>> d21dc1b1a477c705d32039fae05f4c7d63086acd
          
     
         
