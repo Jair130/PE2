@@ -22,7 +22,7 @@ public class connection {
      void createConnection(){
          try{
              Class.forName("com.mysql.jdbc.Driver");
-             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/finalp","root","root");
+             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/finalp","root","root");
              System.out.println("Database Connection Success");
          }catch(ClassNotFoundException ex){
              Logger.getLogger(connection.class.getName()).log(Level.SEVERE,null,ex);

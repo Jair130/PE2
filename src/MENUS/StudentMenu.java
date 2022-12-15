@@ -47,6 +47,7 @@ public class StudentMenu {
     }
    
     public void Equations1(){
+        try{
         Scanner read = new Scanner (System.in);
         System.out.println("System of equations of two variables...........");
         int x1,x2; int y1,y2,t1,t2;
@@ -64,11 +65,16 @@ public class StudentMenu {
        /* System.out.println("denominador = "+d);
         System.out.println("el d1 = "+d1+ "    \n el de d2 = "+d2); */
         long x=d1/d;      long y=d2/d;
-        System.out.println("x = "+x+" y = "+y); 
+        System.out.println("x = "+x+" y = "+y);
+        
+    }catch (Exception e){
+        System.out.println("System with no solution");
+    }
         
     }
         
       public void Equations2()  {
+          try{
             Scanner read =new Scanner (System.in);
             //variables 
        int x1,x2,x3,y1,y2,y3,z1,z2,z3,t1,t2,t3;
@@ -109,14 +115,14 @@ public class StudentMenu {
          System.out.println(" x =   "+d1+"/"+d+"      "+x);
          System.out.println(" y =   "+d2+"/"+d+"     "+y);
          System.out.println(" z =   "+d3+"/"+d+"       "+z);
-    }  
+    }catch (Exception e){
+        System.out.println("System with no solution");  
         
         
+    }
         
         
-        
-        
-        
+ }
 }
 
         

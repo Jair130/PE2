@@ -15,17 +15,21 @@ import java.util.Scanner;
 import MENUS.AdminMenu;
 import MENUS.StudentMenu;
 import java.sql.SQLException;
+import MENUS.connection;
 
 
 public interface INT {
   
     
+    @SuppressWarnings("empty-statement")
     public static void main(String[] args) throws SQLException {
         
         AdminMenu AM = new AdminMenu();
         StudentMenu SM = new StudentMenu();
+        Scanner in = new Scanner (System.in);
+        int option = 0;
        
-
+    do{
         System.out.println("WELCOME USER PLEASE TYPE YOUR USERNAME AND PASSWORD");
 
         Scanner input = new Scanner(System.in);
@@ -35,13 +39,12 @@ public interface INT {
         System.out.println("ENTER YOUR USERNAME");
         user = input.nextLine();
         
+        
 
         System.out.println("ENTER YOUR PASSWORD");
         pass = input.nextLine();
         
-        Scanner in = new Scanner (System.in);
-
-        int option;
+        
  
         if (user.equals("CCT") && pass.equals("Dublin")) {
         System.out.println ("Welcome Admin Choose an option from the menu");
@@ -72,8 +75,8 @@ public interface INT {
             System.out.println ("PLEASE TYPE A VALID OPTION");
     }     
     }
-        
-        if (user.equals("Student") && pass.equals("Pass1234")) {
+           
+        else if (user.equals("Student") && pass.equals("Pass1234")) {
             System.out.println("Welcome User Choose an option from the menu");
             System.out.println("1. Modify your profile");
             System.out.println("2. Solve system of equations of two variables");
@@ -106,12 +109,15 @@ public interface INT {
         else {
             System.out.println("UserName or Password incorrect");
         }
-        
+    
+    }while (5 >option ); 
          
     
         
+        
         }
-        }
+}
+
     
 
 
