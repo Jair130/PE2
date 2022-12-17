@@ -62,7 +62,7 @@ public class Users implements Serializable {
     @Column(name = "user_sex")
     private String userSex;
 
-    public Users() {
+    public Users(int id, String name, String surname, String age, String sex, String operation) {
     }
 
     public Users(Integer usersId) {
@@ -169,6 +169,8 @@ public class Users implements Serializable {
     public void setResultsCollection(Collection<Results> resultsCollection) {
         this.resultsCollection = resultsCollection;
     }
+
+   
 
    
     

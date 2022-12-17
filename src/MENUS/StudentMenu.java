@@ -8,7 +8,14 @@ package MENUS;
 
 
 
+import java.io.IOException;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Scanner;
+import java.sql.Connection;
+import MENUS.connection;
+import java.util.ArrayList;
 
 
 
@@ -19,32 +26,217 @@ import java.util.Scanner;
  */
 public class StudentMenu {
     
+    static Scanner scanner = new Scanner (System.in);
+    
+    String DB_URL = "jdbc:mysql://localhost/finalp" ;
+    String user = "root";
+    String pass = "root";
+    java.sql.Connection conn = null;
+    Statement stmt = null;
     
     
-    public static void main(String[] args)  {
+    Scanner in = new Scanner (System.in);
+    
+     Scanner myKB = new Scanner (System.in);
+     
+    
+    public static void main(String[] args) throws IOException  {
       
         
         
+}
+    
+    /**
+     *
+     * @throws SQLException
+     */
+    public void Modify() throws SQLException{
         
+         System.out.println ("Welcome Choose an option from the menu");
+    System.out.println("1. Modify your name");
+    
+    System.out.println("2. Modify your surname");
+    
+    System.out.println("3. Modify your age ");
+    
+    int option = in.nextInt();
+    
+    switch (option){
+        case 1:
+            try{     
+            System.out.println("TYPE YOUR ID");
+             String id = myKB.nextLine();
+              System.out.println("TYPE YOUR NEW NAME");
+              String Newname = myKB.nextLine();
         
+    conn = DriverManager.getConnection("jdbc:mysql://localhost" , user, pass);
+     stmt = conn.createStatement();
+    
+       conn = DriverManager.getConnection (DB_URL,user,pass);
+           
+       stmt = conn.createStatement();
+       
+       
+       String sql =("UPDATE users SET user_name = \"" + Newname + "\" WHERE user_id =  \"" + id + "\";");
+                 
+       // Prepared statements
+       
+       int rowsAffected = stmt.executeUpdate(sql);
+       
+       System.out.println("Rows affected: " + rowsAffected );
+       System.out.println ("UPDATE COMPLETED!");
+       
+       
+       
+    } catch (SQLException ex){
+       }finally {
+           if (stmt != null){
+               stmt.close();
+           }
+           if (conn != null){
+               conn.close();
+           }
+       } 
+            break;
+        case 2:
+            try{     
+            System.out.println("TYPE YOUR ID");
+             String id = myKB.nextLine();
+              System.out.println("TYPE YOUR NEW SURNAME");
+              String Newsurname = myKB.nextLine();
+        
+    conn = DriverManager.getConnection("jdbc:mysql://localhost" , user, pass);
+     stmt = conn.createStatement();
+    
+       conn = DriverManager.getConnection (DB_URL,user,pass);
+           
+       stmt = conn.createStatement();
+       
+       
+       String sql =("UPDATE users SET user_surname = \"" + Newsurname + "\" WHERE user_id =  \"" + id + "\";");
+                 
+       // Prepared statements
+       
+       int rowsAffected = stmt.executeUpdate(sql);
+       
+       System.out.println("Rows affected: " + rowsAffected );
+       System.out.println ("UPDATE COMPLETED!");
+       
+       
+       
+    } catch (SQLException ex){
+       }finally {
+           if (stmt != null){
+               stmt.close();
+           }
+           if (conn != null){
+               conn.close();
+           }
+       } 
+          
+          break;
+        case 3:
+            try{     
+            System.out.println("TYPE YOUR ID");
+             String id = myKB.nextLine();
+              System.out.println("TYPE YOUR NEW AGE");
+              String Newsage = myKB.nextLine();
+        
+    conn = DriverManager.getConnection("jdbc:mysql://localhost" , user, pass);
+     stmt = conn.createStatement();
+    
+       conn = DriverManager.getConnection (DB_URL,user,pass);
+           
+       stmt = conn.createStatement();
+       
+       
+       String sql =("UPDATE users SET user_age = \"" + Newsage + "\" WHERE user_id =  \"" + id + "\";");
+                 
+       // Prepared statements
+       
+       int rowsAffected = stmt.executeUpdate(sql);
+       
+       System.out.println("Rows affected: " + rowsAffected );
+       System.out.println ("UPDATE COMPLETED!");
+       
+       
+       
+    } catch (SQLException ex){
+       }finally {
+           if (stmt != null){
+               stmt.close();
+           }
+           if (conn != null){
+               conn.close();
+           }
+       } 
+         
+            
+          break;
+    }
+     
     }
     
-    public void Modify(){
-        
-        
-        
-        
-    }
     
     
-    public void Save(){
+   
+     
+
+   public void Save(){
+           
+        // Declare an array to store the computation
+        int[] computation = new int[100];
+
+        // Declare a variable to store the solution
+        int solution = 0;
+
+        // Perform the computation and store the result in the array
+        for (int i = 0; i < 100; i++) {
+        computation[i] = Results(i);
+}
+
+        // Calculate the final solution using the values in the computation array
+        for (int i = 0; i < 100; i++) {
+        solution += computation[i];
+}
+
+        // Print the solution
+        System.out.println("The solution is: " + solution);
+
         
-        
-        
-        
-        
-        
+         // Create an ArrayList to store the results
+           ArrayList<Integer> results = new ArrayList<>();
+
+         // Perform the computation and add the result to the list
+           results.add(performComputation());
+           
+          // Print the first result in the list
+         System.out.println(results.get(0));
+  
+  }
+
+            public static int performComputation() {
+            // Perform the computation and return the result
+            return 42;
+  }
+
+          private int Results(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+         /** can also use a loop to iterate over all of the results in the list 
+            for (int i = 0; i < results.size(); i++) {
+            int result = Results.get(i);
+            System.out.println(result);
+}*/
+
+    
+
+        
+        
+        
+        
+        
+    
    
     public void Equations1(){
         try{
@@ -123,6 +315,8 @@ public class StudentMenu {
         
         
  }
+
+    
 }
 
         

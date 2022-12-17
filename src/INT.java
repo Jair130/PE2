@@ -15,29 +15,30 @@ import java.util.Scanner;
 import MENUS.AdminMenu;
 import MENUS.StudentMenu;
 import java.sql.SQLException;
-<<<<<<< HEAD
 import MENUS.connection;
-=======
->>>>>>> d21dc1b1a477c705d32039fae05f4c7d63086acd
+import java.util.ArrayList;
+
 
 
 public interface INT {
   
-    
-    @SuppressWarnings("empty-statement")
-    public static void main(String[] args) throws SQLException {
+    /**
+     *
+     * @param args
+     * @throws SQLException
+     * @throws java.lang.ClassNotFoundException
+     * @throws java.lang.InstantiationException
+     * @throws java.lang.IllegalAccessException
+     */
+    public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         
         AdminMenu AM = new AdminMenu();
         StudentMenu SM = new StudentMenu();
-<<<<<<< HEAD
         Scanner in = new Scanner (System.in);
         int option = 0;
+        
        
     do{
-=======
-       
-
->>>>>>> d21dc1b1a477c705d32039fae05f4c7d63086acd
         System.out.println("WELCOME USER PLEASE TYPE YOUR USERNAME AND PASSWORD");
 
         Scanner input = new Scanner(System.in);
@@ -84,7 +85,7 @@ public interface INT {
     }     
     }
            
-        else if (user.equals("Student") && pass.equals("Pass1234")) {
+       else if (user.equals("Student") && pass.equals("Pass1234")) {
             System.out.println("Welcome User Choose an option from the menu");
             System.out.println("1. Modify your profile");
             System.out.println("2. Solve system of equations of two variables");
@@ -92,7 +93,7 @@ public interface INT {
             System.out.println("4. Save and see solutions");
             System.out.println("5. Exit");
         
-            option = in.nextInt();
+    option = in.nextInt();
      
     switch (option){
         case 1:
@@ -105,7 +106,9 @@ public interface INT {
             SM.Equations2();
           break;
         case 4:
+
             SM.Save();
+            
          break;
         case 5:
             System.exit(0);
@@ -113,17 +116,13 @@ public interface INT {
             System.out.println ("PLEASE TYPE A VALID OPTION");
         
     }
-        }
-        else {
+    }else  {
             System.out.println("UserName or Password incorrect");
         }
-<<<<<<< HEAD
-    
-    }while (5 >option ); 
-=======
         
->>>>>>> d21dc1b1a477c705d32039fae05f4c7d63086acd
-         
+
+    
+    }while (option !=5);         
     
         
         
